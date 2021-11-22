@@ -6,19 +6,19 @@ const searchBoxRef = document.querySelector('#search-box');
 const countryListRef = document.querySelector('.country-list');
 const countryInfoRef = document.querySelector('.country-info');
 
-const BASE_URL = 'https://restcountries.com/v3.1/name/';
+const BASE_URL = 'https://restcountries.com/v3.1/';
 
-fetchCountries = url => {
+fetchCountries = (url = 'all') => {
   return fetch(BASE_URL + url).then(response => response.json());
 };
-// fetchCountries('/peru').then(data => console.log(data.flatMap(rrr => rrr.name.common)));
+fetchCountries().then(data => console.log(data.flatMap(dat => dat.flags)));
 
-searchBoxRef.addEventListener('input', e => {
-  e.preventDefault;
+// searchBoxRef.addEventListener('input', e => {
+//   e.preventDefault;
 
-  fetchCountries('e').then(
-    data => (countryListRef.textContent = data.flatMap(rrr => rrr.name.common)),
-  );
-});
+//   // fetchCountries('e').then(
+//   //   data => (countryListRef.textContent = data.flatMap(rrr => rrr)),
+//   // );
+// });
 
 // countryListRef;
